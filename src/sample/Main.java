@@ -9,8 +9,22 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    public static String name = "";
+    public static int rounds = 0;
+    public static int questionsPerRound = 0;
+
+    public void init() {
+        Controller.readProperties();
+
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        System.out.println(name);
+        System.out.println(rounds);
+        System.out.println(questionsPerRound);
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
             loader.setController(new Controller());

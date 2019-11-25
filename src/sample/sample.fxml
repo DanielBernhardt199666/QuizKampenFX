@@ -9,7 +9,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.effect.InnerShadow?>
-<?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.effect.Shadow?>
@@ -22,7 +21,7 @@
     <children>
         <AnchorPane accessibleRole="TEXT_AREA" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: #7FDBFF;">
             <children>
-                <TextField fx:id="username" layoutX="-1.0" layoutY="380.0" prefHeight="71.0" prefWidth="602.0" promptText="USERNAME:">
+                <TextField fx:id="username" blendMode="HARD_LIGHT" layoutX="3.0" layoutY="380.0" onAction="#writeToProperties" prefHeight="71.0" prefWidth="598.0" promptText="USERNAME:">
                     <font>
                         <Font name="System Bold" size="27.0" />
                     </font>
@@ -33,9 +32,6 @@
                            <bumpInput>
                               <Shadow />
                            </bumpInput>
-                           <light>
-                              <Light.Distant />
-                           </light>
                         </Lighting>
                      </input>
                   </InnerShadow>
@@ -66,7 +62,7 @@
                <effect>
                   <InnerShadow />
                </effect></Button>
-            <TextArea fx:id="howtoPlayTextARea" editable="false" layoutX="201.0" layoutY="138.0" mouseTransparent="true" prefHeight="175.0" prefWidth="414.0" promptText="RULES:" text="1v1 match.&#10;Amount of questions:&#10;Max points:&#10;Ingame chat.&#10;" visible="false">
+            <TextArea fx:id="howtoPlayTextARea" blendMode="SCREEN" editable="false" layoutX="6.0" layoutY="166.0" mouseTransparent="true" prefHeight="129.0" prefWidth="340.0" promptText="RULES:" text="1v1 match.&#10;Amount of questions:&#10;Max points:&#10;Ingame chat.&#10;" visible="false">
                <font>
                   <Font name="Arial Bold Italic" size="16.0" />
                </font>
@@ -76,7 +72,7 @@
                   <Font name="Agency FB Bold" size="25.0" />
                </font>
             </Label>
-            <Button fx:id="ConnectButton" layoutX="441.0" layoutY="451.0" mnemonicParsing="false" onAction="#ConnecttoServer" prefHeight="36.0" prefWidth="161.0" style="-fx-background-color: #7FDBFF;" text="Connect">
+            <Button fx:id="ConnectButton" layoutX="441.0" layoutY="451.0" mnemonicParsing="false" onAction="#ConnectToServer" prefHeight="36.0" prefWidth="161.0" style="-fx-background-color: #7FDBFF;" text="Connect">
                <effect>
                   <Reflection>
                      <input>
@@ -88,7 +84,7 @@
                   <Font name="Monospaced Regular" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="howtoPlaybutton" blendMode="MULTIPLY" layoutX="344.0" layoutY="124.0" mnemonicParsing="false" onAction="#howtoPlay" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #7FDBFF;" text="How to play" textFill="#000000b1">
+            <Button fx:id="howtoPlaybutton" blendMode="MULTIPLY" layoutX="111.0" layoutY="143.0" mnemonicParsing="false" onAction="#howtoPlay" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #7FDBFF;" text="How to play" textFill="#000000b0">
                <font>
                   <Font name="Monospaced Regular" size="15.0" />
                </font>
@@ -107,6 +103,34 @@
                   <Cursor fx:constant="WAIT" />
                </cursor>
             </ProgressIndicator>
+            <Button fx:id="settingsButton" blendMode="MULTIPLY" layoutX="550.0" layoutY="143.0" mnemonicParsing="false" onAction="#settings" prefHeight="29.0" prefWidth="129.0" style="-fx-background-color: #7FDBFF;" text="Settings">
+               <font>
+                  <Font name="Monospaced Regular" size="15.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#0a0a0a" />
+               </effect>
+            </Button>
+            <TextField fx:id="rounds" blendMode="HARD_LIGHT" layoutX="550.0" layoutY="172.0" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #7FDBFF;" visible="false">
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </TextField>
+            <Label fx:id="roundsLabel" alignment="CENTER_RIGHT" layoutX="475.0" layoutY="175.0" prefHeight="19.0" prefWidth="73.0" text="Rounds:" visible="false">
+               <font>
+                  <Font name="Monospaced Regular" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="questionsPerRoundLabel" alignment="CENTER_RIGHT" layoutX="389.0" layoutY="200.0" prefHeight="25.0" prefWidth="152.0" text="Questions per round:" visible="false">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="questionsPerRound" blendMode="HARD_LIGHT" layoutX="550.0" layoutY="197.0" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #7FDBFF;" visible="false">
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </TextField>
             </children>
             <effect>
             <Blend />
